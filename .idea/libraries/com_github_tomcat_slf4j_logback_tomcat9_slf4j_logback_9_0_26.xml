@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="com.github.tomcat-slf4j-logback:tomcat9-slf4j-logback:9.0.26" type="repository">
+    <properties maven-id="com.github.tomcat-slf4j-logback:tomcat9-slf4j-logback:9.0.26" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/tomcat-slf4j-logback/tomcat9-slf4j-logback/9.0.26/tomcat9-slf4j-logback-9.0.26.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/tomcat-juli/9.0.26/tomcat-juli-9.0.26.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.0-alpha0/slf4j-api-2.0.0-alpha0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl-over-slf4j/2.0.0-alpha0/jcl-over-slf4j-2.0.0-alpha0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.3.0-alpha4/logback-core-1.3.0-alpha4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.3.0-alpha4/logback-classic-1.3.0-alpha4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-access/1.3.0-alpha4/logback-access-1.3.0-alpha4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -10,8 +10,6 @@
 
 <body>
 <h1>Registration successful!</h1>
-<%--<input type="submit" value="Login" a href="">--%>
-
 <p><a href="login.jsp"><input type="submit" value="Login"></a></p>
 </body>
 </html>

@@ -6,6 +6,7 @@ import entity.ToDo;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ToDoImpl implements ToDoInter {
@@ -13,6 +14,7 @@ public class ToDoImpl implements ToDoInter {
     private static final String DELETE_ONE_TASK = "DELETE FROM firstproject.list WHERE id=?";
     private static final String INSERT = "INSERT INTO firstproject.list(user_id, task) VALUES (?, ?)";
     private static final String FIND_BY_ID = "SELECT task FROM firstproject.list WHERE id = ?";
+    private static final String FIND_BY_USER_ID = "SELECT task FROM firstproject.list WHERE user_id = ?";
     private static final String UPDATE = "UPDATE list SET task=? WHERE task_id=?";
 
     @Override
@@ -88,7 +90,7 @@ public class ToDoImpl implements ToDoInter {
         PreparedStatement stmt = conn.prepareStatement(UPDATE);
         try {
             stmt.setString(1, toDo.getMessage());
-            stmt.setInt(2,toDo.getId());
+            stmt.setInt(2, toDo.getId());
             return stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,6 +107,27 @@ public class ToDoImpl implements ToDoInter {
             conn = ConnectionJDBC.getConnection();
             stmt = conn.prepareStatement(FIND_BY_ID);
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<ToDo> findByUserId(Integer user_id) throws SQLException {
+        List<ToDo> toDoLists = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            conn = ConnectionJDBC.getConnection();
+            stmt = conn.prepareStatement(FIND_BY_USER_ID, user_id);
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                int userId = resultSet.getInt(2);
+                String message = resultSet.getString(3);
+                toDoLists.add(new ToDo(id, userId, message));
+                return toDoLists;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

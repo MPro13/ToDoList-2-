@@ -12,4 +12,6 @@ public interface UserInter extends DAOInter <User> {
 
     User findByName(String name)throws SQLException ;
 
+    public User findByPhoneAndPass(String tel, String password)throws SQLException;
+
 }

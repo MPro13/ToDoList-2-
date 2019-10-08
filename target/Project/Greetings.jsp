@@ -1,4 +1,4 @@
-<%@ page isELIgnored="false" %>
+<%@page isELIgnored="false" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,6 @@
 
 <body>
 <h1>Registration successful!</h1>
-<%--<input type="submit" value="Login" a href="index.jsp">--%>
-
-<p><a href="index.jsp"><input type="submit" value="Login"></a></p>
+<p><a href="login.jsp"><input type="submit" value="Login"></a></p>
 </body>
 </html>

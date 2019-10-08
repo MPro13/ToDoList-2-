@@ -16,7 +16,7 @@ public class UserImpl implements UserInter {
     private static final String FIND_BY_NAME = "SELECT * FROM user WHERE name=?";
     private static final String INSERT = "INSERT INTO user(name, tel, password) VALUES(?, ?, ?)";
     private static final String UPDATE = "UPDATE user SET name=?, tel=?, password=? WHERE id=?";
-
+    private static final String FIND_BY_PHONE_AND_PASSWORD = "SELECT * FROM user WHERE `tel` = ? and `password` = ?";
     // executeUpdate(); - повертає числове значення рядків таблиці, що змінились
     // execute() - повертає ResultSet для команди SELECT
     @Override
@@ -121,6 +121,35 @@ public class UserImpl implements UserInter {
         return null;
     }
 
+    @Override
+    public User findByPhoneAndPass(String tel, String password) throws SQLException {
+        Connection conn = ConnectionJDBC.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(FIND_BY_PHONE_AND_PASSWORD);
+        try{
+
+            stmt.setString(1, tel);
+            stmt.setString(2, password);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setTel(rs.getString("tel"));
+                user.setPassword(rs.getString("password"));
+
+                return user;
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            stmt.close();
+        }
+        return null;
+    }
 
     @Override
     public int insert(User user) throws SQLException {

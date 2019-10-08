@@ -1,7 +1,5 @@
 package DAO.interfaces;
-
 import entity.ToDo;
-import entity.User;
 
 import java.sql.SQLException;
 

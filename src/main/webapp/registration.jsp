@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%--    <link rel="stylesheet" type="text/css" href="CSS/CSS.css">--%>
+    <%--    <link rel="stylesheet" type="text/css" href="CSS/CSS.css">--%>
     <title>Registration form</title>
 </head>
 <body>
@@ -14,10 +14,10 @@
 
             <input type="hidden" name="role" value="USER">
 
-            <input type="text"  name="name"
+            <input type="text" name="name"
                    maxlength="20" placeholder="Your name..."/>
 
-            <input type="text"  name="phone"
+            <input type="text" name="phone"
                    maxlength="20" placeholder="Your phone..."/>
 
             <input type="password" name="password"

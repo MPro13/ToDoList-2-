@@ -8,7 +8,7 @@
 <div id="divWindow">
     <div class="divForm">
         <h3> Login form</h3>
-        <form action="home" method="post">
+        <form action="login" method="post">
 
             <input type ="text" name="phone" maxlenght="15"
                    placeholder="Your phone..."/>

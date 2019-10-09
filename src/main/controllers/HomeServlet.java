@@ -15,9 +15,8 @@ import java.util.ArrayList;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
     private ToDoImpl toDoListDAO = new ToDoImpl();
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String message = request.getParameter("task");
-      //  System.out.println(request.getParameter("datetime"));
         HttpSession session = request.getSession();
         int userId = (int)session.getAttribute("id");
         ToDo task = new ToDo(userId, message);
@@ -26,10 +25,10 @@ public class HomeServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        response.sendRedirect(request.getContextPath() + "/home.jsp");
+        response.sendRedirect(request.getContextPath() + "/home");
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("id");
         ArrayList<ToDo> toDoLists = null;
@@ -38,7 +37,7 @@ public class HomeServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.setAttribute("todolists", toDoLists);
+        request.setAttribute("todolist", toDoLists);
         request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 

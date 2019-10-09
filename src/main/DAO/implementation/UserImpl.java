@@ -124,7 +124,7 @@ public class UserImpl implements UserInter {
     @Override
     public User findByPhoneAndPass(String tel, String password) throws SQLException {
         Connection conn = ConnectionJDBC.getConnection();
-        PreparedStatement stmt = conn.prepareStatement(FIND_BY_PHONE_AND_PASSWORD);
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM user WHERE `tel` = ? and `password` = ?");
         try{
 
             stmt.setString(1, tel);
@@ -149,6 +149,16 @@ public class UserImpl implements UserInter {
             stmt.close();
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        UserImpl u = new UserImpl();
+        try {
+            System.out.println( u.findByPhoneAndPass("06712234568","qwerty123"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

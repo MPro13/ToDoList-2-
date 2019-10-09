@@ -14,7 +14,7 @@ public class  UserService   {
         return dao.insert(user);
     }
 
-    public static User login(String tel, String password) throws SQLException {
+    public  User login(String tel, String password) throws SQLException {
 
        // String md5Pass = DigestUtils.md5Hex(uPassword);
 
